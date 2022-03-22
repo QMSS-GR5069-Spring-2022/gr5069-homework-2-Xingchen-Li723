@@ -171,7 +171,7 @@ avg_binge_clean_first = binge_clean_copy.groupby('state').first().rename(columns
 avg_binge_clean_last = binge_clean_copy.groupby('state').last().rename(columns = {'year': 'last_year', 'binge_all': 'binge_all_last'})
 avg_binge_clean = pd.merge(avg_binge_clean_first,avg_binge_clean_last, how = 'left', on = 'state')
 avg_binge_clean['average_annual_growth_rates'] = (avg_binge_clean['binge_all_last']-avg_binge_clean['binge_all_first'])/(avg_binge_clean['last_year']-avg_binge_clean['first_year'])
-avg_binge_clean
+avg_binge_clean.head()
 
 
 # In[65]:
