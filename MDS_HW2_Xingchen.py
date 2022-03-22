@@ -3,6 +3,7 @@
 
 # In[1]:
 
+# ::::::: SOME GLOBAL DEFINITIONS ::::::::::::::::::::::::::
 
 import os
 os.chdir('D:\columbia qmss\MDS\course_content21\Exercises\HW02')
@@ -15,7 +16,7 @@ import pandas as pd
 df = pd.read_csv('U.S._Chronic_Disease_Indicators__CDI_.csv')
 
 
-# ## Selection of Data and Reshaping the Data
+# ::::::::::: ## Selection of Data and Reshaping the Data :::::
 
 # In[3]:
 
@@ -60,6 +61,8 @@ df['Stratification1'].unique()
 df['Question'][df['Question'].str.startswith('Binge')].unique()
 
 
+# # ::::::::::::::: COLUMN REMOVALS ::::::::::::::::::::::::::
+
 # The data contains lots of indicators and is in a long format format.
 #
 # 1. Remove all columns you do not need for the analysis (All done in Python, of course. No Excel acrobatics.). We are interested in two sets of variables. Select the following variables and remove all others:
@@ -82,6 +85,8 @@ print(df_bp.shape)
 df_bp.head()
 
 
+# ::::::: CONVERT TO WIDE FORMAT :::::::::::::::::::::::::::::::::
+
 # 2. Convert the dataset to a wide format data set using the commands from the `pandas` package.
 
 # In[20]:
@@ -93,6 +98,8 @@ df_bp_wide = df_bp.pivot(
     values = 'DataValueAlt')
 df_bp_wide.columns = list(map("_".join, df_bp_wide.columns))
 df_bp_wide.head()
+
+# :::::::::::: RENAMING VARIABLES ::::::::::::::::::::::::::
 
 
 # 3. Rename the variables to follow the format below.
@@ -142,6 +149,7 @@ binge_clean.describe()
 
 binge_clean.to_csv('binge_clean.csv', index = False)
 
+# ::::::::::::::: DATA TRANSFORMATION & SUMMARY RESULTS::::::::::::::::::::::::::::::::
 
 # ## Data Transformation and Summary Results
 
