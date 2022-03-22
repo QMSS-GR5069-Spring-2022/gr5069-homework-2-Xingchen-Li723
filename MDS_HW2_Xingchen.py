@@ -12,7 +12,7 @@ os.chdir('D:\columbia qmss\MDS\course_content21\Exercises\HW02')
 
 
 import pandas as pd
-df = pd.read_csv("U.S._Chronic_Disease_Indicators__CDI_.csv")
+df = pd.read_csv('U.S._Chronic_Disease_Indicators__CDI_.csv')
 
 
 # ## Selection of Data and Reshaping the Data
@@ -39,25 +39,25 @@ df['DataValueUnit'].unique()
 # In[6]:
 
 
-df["Topic"].unique()
+df['Topic'].unique()
 
 
 # In[7]:
 
 
-df["StratificationCategory1"].unique()
+df['StratificationCategory1'].unique()
 
 
 # In[15]:
 
 
-df["Stratification1"].unique()
+df['Stratification1'].unique()
 
 
 # In[8]:
 
 
-df["Question"][df['Question'].str.startswith("Binge")].unique()
+df['Question'][df['Question'].str.startswith('Binge')].unique()
 
 
 # The data contains lots of indicators and is in a long format format.
@@ -167,9 +167,9 @@ binge_clean_copy.head()
 # In[63]:
 
 
-avg_binge_clean_first = binge_clean_copy.groupby('state').first().rename(columns={"year":"first_year","binge_all":"binge_all_first"})
-avg_binge_clean_last = binge_clean_copy.groupby('state').last().rename(columns={"year":"last_year","binge_all":"binge_all_last"})
-avg_binge_clean = pd.merge(avg_binge_clean_first,avg_binge_clean_last, how='left',on='state')
+avg_binge_clean_first = binge_clean_copy.groupby('state').first().rename(columns = {'year': 'first_year', 'binge_all': 'binge_all_first'})
+avg_binge_clean_last = binge_clean_copy.groupby('state').last().rename(columns = {'year': 'last_year', 'binge_all': 'binge_all_last'})
+avg_binge_clean = pd.merge(avg_binge_clean_first,avg_binge_clean_last, how = 'left', on = 'state')
 avg_binge_clean['average_annual_growth_rates'] = (avg_binge_clean['binge_all_last']-avg_binge_clean['binge_all_first'])/(avg_binge_clean['last_year']-avg_binge_clean['first_year'])
 avg_binge_clean
 
@@ -177,10 +177,10 @@ avg_binge_clean
 # In[65]:
 
 
-avg_binge_clean.nlargest(5,'average_annual_growth_rates',keep='all')
+avg_binge_clean.nlargest(5,'average_annual_growth_rates',keep = 'all')
 
 
 # In[67]:
 
 
-avg_binge_clean.nsmallest(5,'average_annual_growth_rates',keep='all')
+avg_binge_clean.nsmallest(5,'average_annual_growth_rates',keep = 'all')
