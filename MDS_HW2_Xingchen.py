@@ -160,7 +160,7 @@ top10_binge
 # In[49]:
 
 
-binge_clean_copy = binge_clean[["state","year","binge_all"]].dropna()
+binge_clean_copy = binge_clean[['state', 'year', 'binge_all']].dropna()
 binge_clean_copy.head()
 
 
