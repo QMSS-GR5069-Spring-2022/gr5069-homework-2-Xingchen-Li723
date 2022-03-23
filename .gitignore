@@ -1,6 +1,9 @@
 # OS files
 *.DS_Store
 
+.Rproj
+.AWS_key
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
